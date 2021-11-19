@@ -2,16 +2,14 @@ import tkinter
 import random
 
 def bt0_on(): #ボタンbt0をクリック時の処理（画像img[0]の表示）
-    if  bt0["text"] == "何が出るかな？"
+    if  bt0["text"] == "何が出るかな？":
          cvs.delete("katsudon") #katsudonのタグを持つ対象を消去
          count = random.choice([0, 1, 2])
          cvs.create_image(300,270,image=img[count],tag="katsudon")
-         bt0["text"]= "リセット"
+         bt0["text"] = "リセット"
     else:
-         btdel_on
-
-def btdel_on():
- cvs.delete("katsudon")
+         cvs.delete("katsudon")
+         bt0["text"] = "何が出るかな？"
 
 root = tkinter.Tk()
 root.title("PK") 
@@ -29,11 +27,7 @@ for i in range(3): #リストimgに画像を追加
 bt0 =tkinter.Button(root,text="何が出るかな？",
  font=("Times New Roman",24),
  command=bt0_on) #ボタンを作成（クリック時の処理はbt0_on）
-btdel =tkinter.Button(root,text="消去",
- font=("Times New Roman",10),
- command=btdel_on) #ボタンを作成（クリック時の処理はbtdel_on）
 
 bt0.place(x=150,y=20) 
-btdel.place(x=550,y=0)
 
 root.mainloop()
